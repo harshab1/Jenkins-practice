@@ -70,7 +70,7 @@ docker exec -ti container-name bash --> to run commands with in a container
 
 docker cp file-name container-name:full-path --> used to copy a file in to a specific container. Using volumes is better
 
-
+parameters --> Build parameters are used to pass data to Jenkins job (https://www.baeldung.com/ops/jenkins-parameterized-builds)
 
 
 

@@ -50,7 +50,7 @@ services:
 networks:
    net:
    
-sudo chown 1000:1000 enkins_home -R --> make sure jenkins user can write to the volumes directory as once the server is terminated all the data is lost. 'R' means apply these changes recurrsively
+sudo chown 1000:1000 jenkins_home -R --> make sure jenkins user can write to the volumes directory as once the server is terminated all the data is lost. 'R' means apply these changes recurrsively
 
 cat /etc/passwd or id --> list of all users
 
@@ -65,6 +65,12 @@ docker-compose stop --> stops the service
 docker logs -f jenkins --> logs with the password hash to login to jenkins
 
 Install suggested plugins and create a admin user 
+
+docker exec -ti container-name bash --> to run commands with in a container
+
+docker cp file-name container-name:full-path --> used to copy a file in to a specific container. Using volumes is better
+
+
 
 
 

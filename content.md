@@ -72,6 +72,8 @@ docker cp file-name container-name:full-path --> used to copy a file in to a spe
 
 parameters --> Build parameters are used to pass data to Jenkins job (https://www.baeldung.com/ops/jenkins-parameterized-builds)
 
+## Jenkins & Docker
+
 
 
 

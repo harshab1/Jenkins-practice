@@ -95,12 +95,48 @@ COPY remote-key.pub /home/remote_user/.ssh/authorized_keys --> ssh-keygen -f rem
 RUN chown remote_user:remote_user /home/remote_user/.ssh/ -R && \
     chmod 600 /home/remote_user/.ssh/authorized_keys
 	
-RUN /usr/sbin/ssh-keygen --> to create global keys for SSH
+RUN ssh-keygen -A --> to create global keys for SSH
+
+RUN yum -y install mysql
+
+RUN yum -y install epel-release && \
+    yum -y install python3-pip && \
+    pip3 install --upgrade pip && \
+    pip3 install awscli
 
 CMD /usr/sbin/sshd -D --> command for what docker has to run
 
+Adding the new service:
 
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - 8080:8080
+    volumes:
+      - "$PWD/jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+  remote_host:
+    container_name: remote_host
+	image: remote_host
+	build:
+	  context: centos7  --> location for building image
+	networks:
+	  - net     --> Makes sure the jenkins server and this service is on same network
+networks:
+   net:
+   
+   
+docker-compose build --> will build the image based on context provided inbuild section
 
+docker-compose up -d
+
+docker cp remote-key jenkins:/tmp/remote-key --> ssh -i remote-key remote_user@remote_host
+
+Install SSH plugin on Jenkins and restart 
 
 
 

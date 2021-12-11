@@ -138,6 +138,51 @@ docker cp remote-key jenkins:/tmp/remote-key --> ssh -i remote-key remote_user@r
 
 Install SSH plugin on Jenkins and restart 
 
+Manage Jenkins > Manage Credentials > Jenkins > Global credentials > Add credentials > Enter remote user and private remote-key 
+
+Manage Jenkins > Configure system > SSH site > remote_host , Port 22 and remote_user credentials and check the connection
+
+Create a job with Build option as Execute shell script on remote host using SSH
+
+## MySQL + AWS + Shell Scripting + Jenkins:
+
+The task is to automate taking the MySQL backup into Amazon S3 Bucket
+
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins/jenkins
+    ports:
+      - 8080:8080
+    volumes:
+      - "$PWD/jenkins_home:/var/jenkins_home"
+    networks:
+      - net
+  remote_host:
+    container_name: remote_host
+	image: remote_host
+	build:
+	  context: centos7  
+	networks:
+	  - net
+  db_host:
+    container_name: db
+	image: mysql:5.7
+	environment:
+	  - "MYSQL_ROOT_PASSWORD = password"
+	volumes:
+	  - "$PWD/db_data:/var/lib/mysql"
+	networks:
+	  - net
+networks:
+   net:
+   
+docker exec -ti db bash
+
+mysql -u root -p  --> to login into mysql with the password
+
+remote host need mysql and awscli installed --> the above Dockerfile is updated with all the required RUN commands
 
 
 

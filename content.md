@@ -74,6 +74,33 @@ parameters --> Build parameters are used to pass data to Jenkins job (https://ww
 
 ## Jenkins & Docker
 
+Dockerfile is used to create a image from an pre-existing image that is used to build a container
+
+mkdir centos 
+
+vi Dockerfile
+--
+
+FROM centos:7
+
+RUN yum -y install openssh-server
+
+RUN useradd remote_user && \
+    echo "password" | passwd remote_user --stdin && \
+	mkdir /home/remote_user/.ssh && \
+	chmod 700 /home/remote_user/.ssh
+	
+COPY remote-key.pub /home/remote_user/.ssh/authorized_keys --> ssh-keygen -f remote-key
+
+RUN chown remote_user:remote_user /home/remote_user/.ssh/ -R && \
+    chmod 600 /home/remote_user/.ssh/authorized_keys
+	
+RUN /usr/sbin/ssh-keygen --> to create global keys for SSH
+
+CMD /usr/sbin/sshd -D --> command for what docker has to run
+
+
+
 
 
 

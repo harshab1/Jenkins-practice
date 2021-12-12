@@ -184,6 +184,63 @@ mysql -u root -p  --> to login into mysql with the password
 
 remote host need mysql and awscli installed --> the above Dockerfile is updated with all the required RUN commands
 
+create database:
+
+connect to the mysql db from the remote_host: mysql -u root -h db_host -p and enter password
+
+create database db_name;
+
+use db_name;
+
+create table table_name(col1, col2, col3..);
+
+insert into table_name values (val11, val12, val13..), (val_21, val22, val23..);
+
+select * from table_name;
+
+desc table_name; 
+
+create a S3 bucket on AWS
+
+create IAM user with programatic access and S3FullAccess policy
+
+Taking manual backups:
+
+login to remote_host:
+
+mysqldump -u root -h db_host -p testdb > /tmp/db.sql
+
+export AWS_ACCESS_KEY_ID=value
+
+export AWS_SECRET_ACCESS_KEY=value
+
+aws s3 cp /tmp/db.sql s3://bucket-name/remote-file-name.sql
+
+-- #/bin/bash  --> remove '--'
+
+DATE=$(date +%H-%M-%S)
+BACKUP=db-$DATE.sql
+
+DB_HOST=$1
+DB_PASSWORD=$2
+DB_NAME=$3
+AWS_SECRET=$4
+BUCKET_NAME=$5
+
+mysqldump -u root -h $DB_HOST -p$DB_PASSWORD $DB_NAME > /tmp/$BACKUP && \
+export AWS_ACCESS_KEY_ID=AKIAJRWZWY3CPV3F3JPQ && \
+export AWS_SECRET_ACCESS_KEY=$AWS_SECRET && \
+echo "Uploading your $BACKUP backup" && \
+aws s3 cp /tmp/db-$DATE.sql s3://$BUCKET_NAME/$BACKUP
+
+manage sensitive data like keys and passwords using jenkins credentials
+
+
+
+
+
+
+
 
 
 

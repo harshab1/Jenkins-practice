@@ -60,6 +60,8 @@ docker-compose up -d --> executes the contents of compose file
 
 docker-compose down 
 
+docker run image-id --> to run docker container from a image
+
 docker-compose start --> similar to the above command
 
 docker-compose stop --> stops the service

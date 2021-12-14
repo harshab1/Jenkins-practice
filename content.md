@@ -36,6 +36,8 @@ docker ps -a
 
 create a directory /home/jenkins/jenkins-data and a docker-compose.yml file as below:
 
+mkdir -p /home/jenkins/jenkins-data --> creates folders and sub-folders recursively
+
 version: '3'
 services:
   jenkins:
@@ -86,7 +88,7 @@ FROM centos:7
 RUN yum -y install openssh-server
 
 RUN useradd remote_user && \
-    echo "password" | passwd remote_user --stdin && \
+    echo "remote_user:password" | chpasswd && \
 	mkdir /home/remote_user/.ssh && \
 	chmod 700 /home/remote_user/.ssh
 	

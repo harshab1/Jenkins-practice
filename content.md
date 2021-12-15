@@ -247,6 +247,10 @@ Automate the process of fetching information from a database and display the out
 Automate - Jenkins
 Get the relevant information from DB - Ansible
 
+## Jenkins Security:
+
+Configure the user permissions with role plugin. Manage the roles with permissions for each detail and also for the jobs with a pettern using '.*'
+
 
 
 

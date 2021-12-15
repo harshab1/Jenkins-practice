@@ -240,7 +240,12 @@ aws s3 cp /tmp/db-$DATE.sql s3://$BUCKET_NAME/$BACKUP
 manage sensitive data like keys and passwords using jenkins credentials
 
 
+## Jenkins and Ansible:
 
+Automate the process of fetching information from a database and display the output in a tabular format on a webpage. 
+
+Automate - Jenkins
+Get the relevant information from DB - Ansible
 
 
 

@@ -251,6 +251,31 @@ Get the relevant information from DB - Ansible
 
 Configure the user permissions with role plugin. Manage the roles with permissions for each detail and also for the jobs with a pettern using '.*'
 
+## Jenkins Tips & Tricks:
+
+Jenkins global variables are default values set by Jenkins, could be used to identify a job/ build. We can our own custon global variables from configure section.
+
+Modify the Jenkins URL if there is a real DNS assciated with the server.
+
+Execute Jenkins jobs automatically using cron expression
+
+Trigger a Jenkins job from external user: create a user with the required permissions
+
+Execute a job from script: 
+
+without parameters:
+
+pass the build now url link with crumbs header 
+
+with parameters:
+
+same as above, also pass parameters in the url of the script
+
+
+
+
+
+
 
 
 

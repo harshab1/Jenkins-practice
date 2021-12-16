@@ -319,7 +319,11 @@ The contents of the DSL file could be: Description, Parameters, SCM, Triggers (l
 
 The DSL code could be versioned using git
 
+## CI/CD
 
+Link to great articel: https://www.infoworld.com/article/3271126/ci-cd/what-is-cicd-continuous-integration-and-continuous-delivery-explained.html
+
+## Jenkins pipeline
 
 
 

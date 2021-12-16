@@ -301,6 +301,13 @@ Archiving the artifact is post build option, that is the result of execution of 
 
 Email notifications can also be setup
 
+## Jenkins and GIT
+
+set up gitlab
+
+Gitlab is similar to git. The same functionality of source code management. Jenkins job can be set in a similar way to git 
+
+Git hook can be used to trigger a action on a commmit to a specific branch using a custom script
 
 
 

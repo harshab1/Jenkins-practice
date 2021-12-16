@@ -273,6 +273,14 @@ same as above, also pass parameters in the url of the script
 
 ## Jenkins and Email:
 
+plugin 'mailer' is installed
+
+Integrate Jenkins with Amazon SES
+
+Without SES, emial configuration can be done from Jenkins directly
+
+In the post build options provide the email of the recepient
+
 
 
 

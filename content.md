@@ -271,6 +271,10 @@ with parameters:
 
 same as above, also pass parameters in the url of the script
 
+## Jenkins and Email:
+
+
+
 
 
 

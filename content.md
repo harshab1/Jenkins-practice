@@ -309,6 +309,16 @@ Gitlab is similar to git. The same functionality of source code management. Jenk
 
 Git hook can be used to trigger a action on a commmit to a specific branch using a custom script
 
+## Jenkins DSL
+
+DSL is installed using jsl plugin, is used to create Jenkins job using script written in Ruby language
+
+Script sample example can be taken from: https://jenkinsci.github.io/job-dsl-plugin/ . Always prefer free-style job sample examples.
+
+The contents of the DSL file could be: Description, Parameters, SCM, Triggers (like cron job or pollscm), Steps (shell execution), Mailer, etc.
+
+The DSL code could be versioned using git
+
 
 
 

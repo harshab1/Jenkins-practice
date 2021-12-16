@@ -281,8 +281,25 @@ Without SES, emial configuration can be done from Jenkins directly
 
 In the post build options provide the email of the recepient
 
+## Jenkins and maven:
 
+Maven Integration plugin has to be installed
 
+Install GIT plugin
+
+Put the git clone URL in the Source Code Management section of the job configuration
+
+Workspace contains the code contents of Jenkins
+
+Look for maven goals, they have a meaning. They are defined in the code to execute certain tasks like testing the jar
+
+Use execute shell to run commands on the jar file built by maven
+
+Trend graph can be generated showing the success and failure trends of the jobs. It is set in Junit tests in post build actions
+
+Archiving the artifact is post build option, that is the result of execution of a certain job, it can be downloaded from that job's homepage. And better the artifact is archived if only the buid is successful.
+
+Email notifications can also be setup
 
 
 

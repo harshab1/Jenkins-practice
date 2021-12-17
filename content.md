@@ -343,9 +343,24 @@ Credentials, they are defined in Jenkins secrets and referenced in the pipeline 
 
 Post actions, these are defined based on the status of execution like always, success, failure and unstable
 
+## CI/CD + Jenkins Pipeline + Docker + Maven
+
+The pipeline has four stages: Build, Test, Push and Deploy
+
+docker sock file exposes host docker daemon to a container, means a container will be able to access all the host images and containers. It is mounted to a container like a volume in docker-compose file with location: vloumes: - /var/run/docker.sock:/var/run/docker.sock
+
+Application jar file can be created using maven container (previously done with Jenkins plugin) 
 
 
+docker run --rm -ti -v $PWD/java-app:app -v /root/.m2:/root/.m2 -w /app maven:3-alpine sh
 
+In the above command: rm -- removes container after exited, v -- volumes that are mounted, w -- specify working directory 
+
+docker run --rm -v $PWD/java-app:app -v /root/.m2:/root/.m2 -w /app maven:3-alpine mvn -B -DskipTests clean package
+
+The above single line of command will create a jar file on the host's mounted volume
+
+Automate the above command using bash script #!/bin/bash
 
 
 

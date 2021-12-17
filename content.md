@@ -325,6 +325,26 @@ Link to great articel: https://www.infoworld.com/article/3271126/ci-cd/what-is-c
 
 ## Jenkins pipeline
 
+Jenkins as code or Pipeline as code 
+
+Two types of pipeline: Declarative and Scripted
+
+pipeline plugin must be installed
+
+The steps are where all the commands and execution instructions are passed for each stage. It will be of multiple lines and shell commands are used for this purpose
+
+retry can be used, for a process thats failed retried specified number of times
+
+Timeouts are used to exit out of the processes that take longer time than expected
+
+Environment variables, they are defined and used in any stages of the declarative file
+
+Credentials, they are defined in Jenkins secrets and referenced in the pipeline steps
+
+Post actions, these are defined based on the status of execution like always, success, failure and unstable
+
+
+
 
 
 
